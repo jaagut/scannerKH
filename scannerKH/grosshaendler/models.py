@@ -8,7 +8,7 @@ class FTP(models.Model):
     def __str__(self):
         return f"HOST: {self.host}, USER: {self.user}"
 
-class Wholesaler(models.Model):
+class Grosshaendler(models.Model):
     name = models.CharField(max_length=50)
     ftp = models.ForeignKey(FTP, on_delete=models.CASCADE)
 

@@ -1,8 +1,8 @@
 from django.db import models
-from wholesaler.models import Wholesaler
+from grosshaendler.models import Grosshaendler
 
 
-class Article(models.Model):
+class Artikel(models.Model):
     # After the bnn-3 specification with an additional wholesaler field
     artikel_nr = models.CharField(verbose_name='Artikelnummer', max_length=14, primary_key=True)
     aenderungskennung = models.CharField(verbose_name='Änderungskennung: N=neu, A=Änderung, X=ausgelistet, R=Restbestand, V=vorübergehend ausgelistet, W=wiedergelistet', max_length=1)
@@ -74,4 +74,7 @@ class Article(models.Model):
     lieferbar_ab = models.IntegerField(verbose_name='LieferbarAb: JJJJMMTT')
     lieferbar_bis = models.IntegerField(verbose_name='LieferbarBis: JJJJMMTT')
 
-    wholesaler = models.ForeignKey(Wholesaler, on_delete=models.DO_NOTHING)
+    grosshaendler = models.ForeignKey(Grosshaendler, on_delete=models.DO_NOTHING)
+
+    def __str__(self):
+        return f"ARTIKEL-NR: {self.artikel_nr}, BEZEICHNUNG: {self.bezeichnung}, GROßHÄNDLER: {self.grosshaendler.__str__()}"

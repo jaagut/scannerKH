@@ -39,9 +39,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'scanner.apps.ScannerConfig',
     'user.apps.UserConfig',
-    'wholesaler.apps.WholesalerConfig',
-    'article.apps.ArticleConfig',
-    'order.apps.OrderConfig',
+    'grosshaendler.apps.GrosshaendlerConfig',
+    'artikel.apps.ArtikelConfig',
+    'bestellung.apps.BestellungConfig',
 
 ]
 
